@@ -14,17 +14,19 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://sravan-kowsik-g-portfolio.pages.dev/">
+<meta property="og:url" content="https://sravan-kowsik-g-portfolio.pages.dev/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sravan Kowsik Gonuguntla">
 <meta property="og:description" content="Robotics, machine learning and XR engineer. B.Tech CSE (AI &amp; Robotics) at VIT Chennai.">
-<meta property="og:image" content="og-image.png">
+<meta property="og:image" content="https://sravan-kowsik-g-portfolio.pages.dev/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Sravan Kowsik Gonuguntla, robotics, machine learning and XR engineer">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sravan Kowsik Gonuguntla">
 <meta name="twitter:description" content="Robotics, machine learning and XR engineer.">
-<meta name="twitter:image" content="og-image.png">
+<meta name="twitter:image" content="https://sravan-kowsik-g-portfolio.pages.dev/og-image.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -239,6 +241,28 @@ footer{max-width:1260px;margin:0 auto;padding:30px 24px 44px;color:var(--mut);fo
   *,*::before,*::after{animation:none!important;transition:none!important}
   .js .t{opacity:1;transform:none}
 }
+
+/* email reveal */
+button.pill{border:0;font:inherit;font-weight:500;cursor:pointer}
+#mailbox{border:0;border-radius:28px;padding:0;width:min(420px,calc(100% - 32px));background:var(--tile);color:var(--ink);box-shadow:0 40px 90px -20px rgba(0,0,0,.55)}
+#mailbox::backdrop{background:rgba(0,0,0,.45);backdrop-filter:blur(8px)}
+#mailbox .mh{font-size:1.7rem;font-weight:700;letter-spacing:-.04em;padding:30px 30px 0}
+#mailbox .mbody{padding:10px 30px 30px}
+#mailbox p{margin:0 0 14px;color:var(--body)}
+#mailbox .mq{font-size:2.2rem;font-weight:800;letter-spacing:-.05em;color:var(--ink)}
+#mailbox .answer{width:100%;font:inherit;font-size:1.1rem;padding:13px 16px;border:1px solid var(--hair2);border-radius:14px;background:var(--bg);color:var(--ink)}
+#mailbox .mrow{display:flex;gap:12px;margin-top:18px;align-items:center;flex-wrap:wrap}
+#mailbox .mbtn{font:inherit;font-weight:500;padding:12px 22px;border:0;border-radius:999px;background:var(--grey);color:var(--ink);cursor:pointer;transition:transform .3s var(--ease),background .2s}
+#mailbox .mbtn.primary{background:var(--blue);color:#fff}
+#mailbox .mbtn:hover{transform:scale(1.04)}
+#mailbox .mlink{font-weight:600;font-size:1.15rem;color:var(--link);word-break:break-all}
+#mailbox .mmsg{min-height:1.4em;margin:12px 0 0;color:#ff453a;font-weight:500}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+#mailbox{margin:auto}
+#mailbox .mts{min-height:70px;margin-top:6px}
+#mailbox .mts iframe{max-width:100%}
+#mb-cancel[hidden],#mb-res[hidden],#mb-ask[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -344,8 +368,8 @@ footer{max-width:1260px;margin:0 auto;padding:30px 24px 44px;color:var(--mut);fo
   <section class="t c4 black contact" id="contact" style="--d:0s">
     <h2 class="hl">Let's build something together.</h2>
     <div class="side">
-      <a class="pill light" href="mailto:sravankowsikwork@gmail.com">sravankowsikwork@gmail.com</a>
-      <div class="links"><a href="tel:+919952850491">+91 99528 50491</a><a href="https://www.linkedin.com/in/sravan-kowsik-g/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/sravannotshravan" target="_blank" rel="noopener">GitHub</a></div>
+      <button type="button" class="pill light" data-mail>Show my email</button>
+      <div class="links"><a href="https://www.linkedin.com/in/sravan-kowsik-g/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/sravannotshravan" target="_blank" rel="noopener">GitHub</a></div>
     </div>
   </section>
 </div>
@@ -389,6 +413,66 @@ function set(t,save){r.classList.add("theme-anim");r.dataset.theme=t;if(save){tr
 if(b)b.addEventListener("click",function(){set(r.dataset.theme==="dark"?"light":"dark",true)});
 mq.addEventListener("change",function(e){var s;try{s=localStorage.getItem("theme")}catch(x){}if(!s)set(e.matches?"dark":"light",false)});
 upd()})();
+</script>
+<dialog id="mailbox" aria-labelledby="mb-title">
+  <form autocomplete="off" onsubmit="return false">
+    <div class="mh" id="mb-title">Quick check</div>
+    <div class="mbody">
+      <div id="mb-ask">
+        <p>Confirm you're a person and I'll show my email. It keeps my inbox free of spam.</p>
+        <div id="mb-ts" class="mts" aria-live="polite"></div>
+      </div>
+      <div id="mb-res" hidden>
+        <p>Here you go:</p>
+        <p><a id="mb-link" class="mlink" href="#"></a></p>
+        <div class="mrow"><button type="button" class="mbtn primary" id="mb-copy">Copy</button><button type="button" class="mbtn" data-close>Close</button></div>
+      </div>
+      <p id="mb-msg" role="status" class="mmsg"></p>
+      <div class="mrow" id="mb-cancel"><button type="button" class="mbtn" data-close>Cancel</button></div>
+    </div>
+  </form>
+</dialog>
+<script>
+(function(){
+/* Replace with your Cloudflare Turnstile site key (it is public). */
+var SITEKEY="0x4AAAAAAFzkZIAaKlH3Wene";
+var d=document.getElementById("mailbox");if(!d||!d.showModal)return;
+var ts=d.querySelector("#mb-ts"),msg=d.querySelector("#mb-msg"),res=d.querySelector("#mb-res"),ask=d.querySelector("#mb-ask"),cancel=d.querySelector("#mb-cancel"),link=d.querySelector("#mb-link"),copy=d.querySelector("#mb-copy");
+var email="",widget=null,loading=null;
+function loadTurnstile(){
+ if(window.turnstile)return Promise.resolve();
+ if(loading)return loading;
+ loading=new Promise(function(ok,fail){var s=document.createElement("script");s.src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";s.async=true;s.onload=ok;s.onerror=fail;document.head.appendChild(s)});
+ return loading;
+}
+function reset(){
+ msg.textContent="";res.hidden=true;ask.hidden=false;cancel.hidden=false;
+ if(widget!==null&&window.turnstile){try{turnstile.reset(widget)}catch(e){}}
+}
+function fail(text){msg.textContent=text;if(widget!==null&&window.turnstile){try{turnstile.reset(widget)}catch(e){}}}
+function verified(token){
+ msg.textContent="Checking...";
+ fetch("/api/reveal",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({token:token})})
+  .then(function(r){return r.json().then(function(j){return{r:r,j:j}})})
+  .then(function(x){
+   if(x.r.ok&&x.j.ok&&x.j.email){email=x.j.email;link.href="mailto:"+email;link.textContent=email;ask.hidden=true;cancel.hidden=true;res.hidden=false;msg.textContent="";copy.focus()}
+   else fail("The check didn't pass. Please try again.");
+  })
+  .catch(function(){fail("Couldn't reach the server. Please try again in a moment.")});
+}
+function open(){
+ reset();d.showModal();
+ loadTurnstile().then(function(){
+  if(widget===null){widget=turnstile.render(ts,{sitekey:SITEKEY,theme:"auto",callback:verified,"error-callback":function(){fail("The check couldn't load. Message me on LinkedIn instead.")},"expired-callback":function(){msg.textContent=""}})}
+  else turnstile.reset(widget);
+ }).catch(function(){fail("The check couldn't load. Message me on LinkedIn instead.")});
+}
+document.querySelectorAll("[data-mail]").forEach(function(el){el.addEventListener("click",open)});
+copy.addEventListener("click",function(){if(navigator.clipboard&&email){navigator.clipboard.writeText(email).then(function(){copy.textContent="Copied"},function(){copy.textContent="Press Ctrl+C"})}});
+d.querySelectorAll("[data-close]").forEach(function(x){x.addEventListener("click",function(){d.close()})});
+d.addEventListener("click",function(e){if(e.target===d)d.close()});
+d.addEventListener("close",function(){copy.textContent="Copy";email="";link.removeAttribute("href");link.textContent=""});
+})();
 </script>
 </body>
 </html>
